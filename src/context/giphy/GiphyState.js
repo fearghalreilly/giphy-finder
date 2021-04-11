@@ -7,17 +7,14 @@ import GiphyContext from './giphyContext';
 import GiphyReducer from './giphyReducer';
 import {
     GET_TRENDING_GIFS,
-    SET_LOADING
+    SET_LOADING,
+    SEARCH_GIFS
  
 } from '../types';
 
 const GiphyState = props => {
     const initialState = {
-        trendingGifs: [
-
-           
-
-        ],
+        trendingGifs: [],
         trendingGif: {},
         gifs: [],
         gif: {},
@@ -26,24 +23,38 @@ const GiphyState = props => {
 
 const [state, dispatch] = useReducer(GiphyReducer, initialState);
 
+//Search Gifs
+const searchGifs = async text => {
+  setLoading();
+
+  const res = await axios.get(
+    `https://api.giphy.com/v1/gifs/search?api_key=f9lj5mOeZNV6F2WX7nw90WWWZ5L3WPNS&q=${text}&limit=25&offset=0&rating=g&lang=en`
+  );
+
+  dispatch({
+    type: SEARCH_GIFS,
+    payload: res.data.data
+  });
+};
+
  // Get Trending Gif
- const getTrendingGifs = async () => {
-    setLoading();
+//  const getTrendingGifs = async () => {
+//     setLoading();
 
-    const res = await axios.get('https://api.giphy.com/v1/gifs/trending', {params: {api_key: 'f9lj5mOeZNV6F2WX7nw90WWWZ5L3WPNS'
-}
-})
+//     const res = await axios.get('https://api.giphy.com/v1/gifs/trending', {params: {api_key: 'f9lj5mOeZNV6F2WX7nw90WWWZ5L3WPNS'
+// }
+// })
        
-    dispatch({
-      type: GET_TRENDING_GIFS,
-      payload: res.data.data
-    });
-  };
+//     dispatch({
+//       type: GET_TRENDING_GIFS,
+//       payload: res.data.data
+//     });
+//   };
 
 
-useEffect(() => {
-    getTrendingGifs();
-}, [])
+// useEffect(() => {
+//     getTrendingGifs();
+// }, [])
  
 
 
@@ -67,7 +78,8 @@ return (
         gifs: state.gifs,
         gif: state.gif,
         loading: state.loading,
-        getTrendingGifs,
+        searchGifs,
+        // getTrendingGifs,
         setLoading
      
       }}

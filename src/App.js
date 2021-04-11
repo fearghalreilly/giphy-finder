@@ -7,7 +7,8 @@ import './App.css';
 //Components
 import Nav from './components/Nav'
 import TrendingGifs from './components/TrendingGifs'
-
+import Search from './components/Search'
+import Gifs from './components/Gifs'
 //State
 import GiphyState from './context/giphy/GiphyState'
 
@@ -24,7 +25,9 @@ function App() {
     <Nav />
     <div>
       <h1>GIPHY FINDER</h1>
+      <Search />
      <TrendingGifs />
+     <Gifs />
     </div>
     </BrowserRouter>
     </GiphyState>

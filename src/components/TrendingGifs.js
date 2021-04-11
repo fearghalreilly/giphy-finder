@@ -2,10 +2,17 @@ import React, { useContext, useEffect } from 'react'
 import GiphyContext from '../context/giphy/giphyContext';
 import Spinner from './Spinner';
 
+//Import FontAwesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChartLine,
+  faBars,
+  } from "@fortawesome/free-solid-svg-icons";
+
 //Styles
 import styled from 'styled-components'
 
-const Gifs = () => {
+const TrendingGifs = () => {
     const giphyContext = useContext(GiphyContext);
 
     const { trendingGifs, loading } = giphyContext;
@@ -17,8 +24,14 @@ const Gifs = () => {
 
  return (
         <TrendingContainer>
-         
+<TrendingHeader>
+<FontAwesomeIcon icon={faChartLine} color="#00E6CC" size="3x" />
+<h2>Trending</h2>
 
+</TrendingHeader>
+
+         
+<TrendingContent>
             {trendingGifs.map(el => {
     return (
       <div>
@@ -26,6 +39,7 @@ const Gifs = () => {
       </div>
     )
   })}
+  </TrendingContent>
        
         </TrendingContainer>
 
@@ -36,27 +50,42 @@ const Gifs = () => {
 
 
 
-export default Gifs;
+export default TrendingGifs;
 
 const TrendingContainer = styled.div`
   background: black;
-  padding: 45px 100px 45px 100px;
+  padding: 0px 100px 0px 100px;
   width: 100%;
- columns: 4;
+  @media screen and (max-width: 1080px) {
+  padding: 0px 55px 0px 55px;
+  }
+
+  @media screen and (max-width: 765px) {
+
+    padding: 0px 35px 0px 35px;
+  }
+`
+const TrendingHeader = styled.div`
+display: flex;
+justify-content: start;
+align-items: flex-end;
+
+h2 {
+  color: white;
+  font-size: 34px;
+  padding-left: 10px;
+ 
+}
+
+`
+
+const TrendingContent = styled.div`
+  columns: 4;
  column-gap: 15px;
 
  img {
    padding-top: 15px;
  }
 
-
-  @media screen and (max-width: 1080px) {
-  padding: 45px 55px 45px 55px;
-  }
-
-  @media screen and (max-width: 765px) {
-
-    padding: 45px 35px 45px 35px;
-  }
 `
 
