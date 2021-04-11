@@ -9,8 +9,10 @@ import Nav from './components/Nav'
 import TrendingGifs from './components/TrendingGifs'
 import Search from './components/Search'
 import Gifs from './components/Gifs'
+import Alert from './components/Alert'
 //State
 import GiphyState from './context/giphy/GiphyState'
+import AlertState from './context/alert/AlertState'
 
 function App() {
   
@@ -20,16 +22,18 @@ function App() {
   return (
     <>
     <GiphyState>
+    <AlertState>
     <BrowserRouter>
     <GlobalStyles />
     <Nav />
     <div>
-      <h1>GIPHY FINDER</h1>
+      <Alert />
       <Search />
      <TrendingGifs />
      <Gifs />
     </div>
     </BrowserRouter>
+    </AlertState>
     </GiphyState>
     </>
   );

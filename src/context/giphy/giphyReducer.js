@@ -1,7 +1,8 @@
 import {
 GET_TRENDING_GIFS,
   SET_LOADING,
-  SEARCH_GIFS
+  SEARCH_GIFS,
+  CLEAR_GIFS
   } from '../types';
   
   export default (state, action) => {
@@ -18,6 +19,12 @@ GET_TRENDING_GIFS,
         trendingGifs: action.payload,
         loading: false
       };
+    case CLEAR_GIFS:
+        return {
+          ...state,
+          gifs: [],
+          loading: false
+        };
       case SET_LOADING:
         return {
           ...state,

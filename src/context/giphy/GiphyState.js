@@ -8,7 +8,8 @@ import GiphyReducer from './giphyReducer';
 import {
     GET_TRENDING_GIFS,
     SET_LOADING,
-    SEARCH_GIFS
+    SEARCH_GIFS,
+    CLEAR_GIFS
  
 } from '../types';
 
@@ -38,23 +39,23 @@ const searchGifs = async text => {
 };
 
  // Get Trending Gif
-//  const getTrendingGifs = async () => {
-//     setLoading();
+ const getTrendingGifs = async () => {
+    setLoading();
 
-//     const res = await axios.get('https://api.giphy.com/v1/gifs/trending', {params: {api_key: 'f9lj5mOeZNV6F2WX7nw90WWWZ5L3WPNS'
-// }
-// })
+    const res = await axios.get('https://api.giphy.com/v1/gifs/trending', {params: {api_key: 'f9lj5mOeZNV6F2WX7nw90WWWZ5L3WPNS'
+}
+})
        
-//     dispatch({
-//       type: GET_TRENDING_GIFS,
-//       payload: res.data.data
-//     });
-//   };
+    dispatch({
+      type: GET_TRENDING_GIFS,
+      payload: res.data.data
+    });
+  };
 
 
-// useEffect(() => {
-//     getTrendingGifs();
-// }, [])
+useEffect(() => {
+    getTrendingGifs();
+}, [])
  
 
 
@@ -64,7 +65,8 @@ const searchGifs = async text => {
 
 
 
-
+// Clear Users
+const clearGifs = () => dispatch({ type: CLEAR_GIFS });
 
 
 // Set Loading
@@ -79,8 +81,9 @@ return (
         gif: state.gif,
         loading: state.loading,
         searchGifs,
-        // getTrendingGifs,
-        setLoading
+        getTrendingGifs,
+        setLoading,
+        clearGifs
      
       }}
     >
