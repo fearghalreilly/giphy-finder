@@ -15,41 +15,40 @@ import styled from 'styled-components'
 const TrendingGifs = () => {
     const giphyContext = useContext(GiphyContext);
 
-    const { trendingGifs, loading } = giphyContext;
+    const { trendingGifs, loading, gifs } = giphyContext;
     
     
-    if (loading) {
-        return <Spinner />;
-      } else {
-
+  
  return (
-        <TrendingContainer>
-<TrendingHeader>
-<FontAwesomeIcon icon={faChartLine} color="#00E6CC" size="3x" />
-<h2>Trending</h2>
+   <>
 
-</TrendingHeader>
+{!gifs.length  > 0 && (
+ 
+  <TrendingContainer>
+  <TrendingHeader>
+  <FontAwesomeIcon icon={faChartLine} color="#00E6CC" size="3x" />
+  <h2>Trending</h2>
+  </TrendingHeader>
+  
+           
+  <TrendingContent>
+              {trendingGifs.map(el => {
+      return (
+        <div>
+          <img src={el.images.fixed_height.url}></img>
+        </div>
+      )
+    })}
+    </TrendingContent>
+    </TrendingContainer>
+  
+      )}
+  
+  </>
 
-         
-<TrendingContent>
-            {trendingGifs.map(el => {
-    return (
-      <div>
-        <img src={el.images.fixed_height.url}></img>
-      </div>
-    )
-  })}
-  </TrendingContent>
+ )
+  }
        
-        </TrendingContainer>
-
-    );
-
-            }
-};
-
-
-
 export default TrendingGifs;
 
 const TrendingContainer = styled.div`
