@@ -6,7 +6,6 @@ import Spinner from './Spinner';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChartLine,
-  faBars,
   } from "@fortawesome/free-solid-svg-icons";
 
 //Styles
@@ -15,7 +14,7 @@ import styled from 'styled-components'
 const TrendingGifs = () => {
     const giphyContext = useContext(GiphyContext);
 
-    const { trendingGifs, loading, gifs } = giphyContext;
+    const { trendingGifs, getModalContent, gifs } = giphyContext;
     
     
   
@@ -32,10 +31,10 @@ const TrendingGifs = () => {
   
            
   <TrendingContent>
-              {trendingGifs.map(el => {
+              {trendingGifs.map(gif => {
       return (
-        <div>
-          <img src={el.images.fixed_height.url}></img>
+        <div onClick={() => getModalContent(gif)}>
+          <img src={gif.images.fixed_height.url}></img>
         </div>
       )
     })}
@@ -81,6 +80,16 @@ h2 {
 const TrendingContent = styled.div`
   columns: 4;
  column-gap: 15px;
+ cursor: pointer;
+
+ 
+  @media screen and (max-width: 960px) {
+    columns: 3;
+  }
+
+  @media screen and (max-width: 765px) {
+    columns: 2;
+  }
 
  img {
    padding-top: 15px;

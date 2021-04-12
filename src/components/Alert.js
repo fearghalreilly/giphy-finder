@@ -51,10 +51,16 @@ export default Alert;
 
 const AlertContainer = styled.div`
   background: black;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  padding: 0px 100px 0px 100px;
+  width: 100%;
 
+  @media screen and (max-width: 1080px) {
+  padding: 0px 55px 0px 55px;
+  }
+
+  @media screen and (max-width: 765px) {
+  padding: 0px 35px 0px 35px;
+  }
 
 `
 
@@ -65,11 +71,16 @@ const AlertSection = styled.div`
   display: flex;
   align-items: center;
   justify-content: start;
-  width: 40vw;
+  width: 50%;
+
+  
+  @media screen and (max-width: 1080px) {
+    width: 100%;
+  }
+
+ 
   
   
-
-
   p {
     color: white;
     padding: 20px 15px 20px 20px;

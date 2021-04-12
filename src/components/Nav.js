@@ -20,7 +20,6 @@ import {
 import styled from 'styled-components'
 
 
-
 const Nav = () => {
 
   const [toggle, setToggle] = useState(false)
@@ -33,7 +32,6 @@ const Nav = () => {
 
     return (
         <>
-        <NavbarContainer>
            <NavSection>
             <IconLink to='/'>GIPHY <span>Finder</span></IconLink>
             <NavbarMenu style={{ right: toggle ? '0' : '100%' }} onClick={handleToggleNav} >
@@ -64,19 +62,11 @@ const Nav = () => {
         {toggle ? <FontAwesomeIcon icon={faTimes} color="#fff" size="2x" /> : <FontAwesomeIcon icon={faBars} color="#fff" size="2x" />}
         </BurgerIcon>
             </NavSection> 
-        </NavbarContainer>
-        
         </>
     )
 }
 
-const NavbarContainer = styled.div`
-     background: black;
-     position: sticky;
-     top: 0;
-     width: 100%;
-     z-index: 10;
-`
+
 
 const NavSection = styled.div`
 display: flex;

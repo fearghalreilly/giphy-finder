@@ -9,7 +9,11 @@ import {
     GET_TRENDING_GIFS,
     SET_LOADING,
     SEARCH_GIFS,
-    CLEAR_GIFS
+    CLEAR_GIFS,
+    RETREIVE_MODAL,
+    ADD_FAV,
+    DELETE_FAV,
+    CLEAR_MODAL
  
 } from '../types';
 
@@ -19,7 +23,10 @@ const GiphyState = props => {
         trendingGif: {},
         gifs: [],
         gif: {},
-        loading: false
+        loading: false,
+        modalContent: null,
+        favourites:[]
+    
     };
 
 const [state, dispatch] = useReducer(GiphyReducer, initialState);
@@ -58,10 +65,20 @@ useEffect(() => {
 }, [])
  
 
+//Add Favourites
+const addFavourites = content => dispatch({type: ADD_FAV, payload: content })
+
+//Delete Favourites
+  const deleteFav= id => {
+    dispatch({ type: DELETE_FAV, payload: id });
+};
 
 
+//Retreive Modal Content
+const getModalContent = content => dispatch({ type: RETREIVE_MODAL, payload: content });
 
-
+//Clear Modal
+const clearModalContent = () => dispatch({ type: CLEAR_MODAL });
 
 
 
@@ -80,10 +97,16 @@ return (
         gifs: state.gifs,
         gif: state.gif,
         loading: state.loading,
+        modalContent: state.modalContent,
+        favourites: state.favourites,
         searchGifs,
         getTrendingGifs,
         setLoading,
-        clearGifs
+        clearGifs,
+        getModalContent,
+        addFavourites,
+        deleteFav,
+        clearModalContent,
      
       }}
     >

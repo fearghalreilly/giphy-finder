@@ -64,16 +64,32 @@ export default Search;
 
 const SearchContainer = styled.div`
   background: black;
-  padding: 15px 0px;
+  padding: 15px 100px 15px 100px;
+  width: 100%;
+  position: sticky;
+
+  @media screen and (max-width: 1080px) {
+  padding: 15px 55px 15px 55px;
+  }
+
+  @media screen and (max-width: 765px) {
+  padding: 15px 35px 15px 35px;
+  }
  `
 
 const SearchSection = styled.div`
-    width: 40vw;
-    margin: auto;
-    display: grid;
+  width: 50%;
+  margin: auto;
+  display: grid;
   gap: 15px;
   grid-template-columns: 1fr;
   margin: auto;
+
+  @media screen and (max-width: 1080px) {
+    width: 100%;
+  }
+
+ 
 
 `
 
@@ -83,6 +99,14 @@ const SearchInput = styled.input`
   font-size: 1.2rem;
   border-radius: 10px;
   border: none;
+  font-size: 24px;
+  letter-spacing: 1px;
+
+  
+@media screen and (max-width: 765px) {
+  font-size: 20px;
+  width: 75%;
+  }
 
   :focus {
     outline: none;
@@ -100,6 +124,15 @@ const SubmitInput = styled.input`
   border-radius: 10px;
   background-color: #884AF4;
   border: none;
+  color: white;
+  font-size: 24px;
+  letter-spacing: 1px;
+
+  
+@media screen and (max-width: 765px) {
+  font-size: 20px;
+  width: 30%;
+  }
 
   :focus {
     outline: none;
@@ -112,6 +145,15 @@ font-size: 1.2rem;
 border-radius: 10px;
 border: none;
 cursor: pointer;
+background: white;
+font-size: 24px;
+
+letter-spacing: 1px;
+
+@media screen and (max-width: 765px) {
+  font-size: 20px;
+  }
+
 
 `
 

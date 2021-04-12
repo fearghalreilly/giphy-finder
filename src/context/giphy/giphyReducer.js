@@ -2,7 +2,11 @@ import {
 GET_TRENDING_GIFS,
   SET_LOADING,
   SEARCH_GIFS,
-  CLEAR_GIFS
+  CLEAR_GIFS,
+  RETREIVE_MODAL,
+  ADD_FAV,
+  DELETE_FAV,
+  CLEAR_MODAL
   } from '../types';
   
   export default (state, action) => {
@@ -30,6 +34,33 @@ GET_TRENDING_GIFS,
           ...state,
           loading: true
         };
+
+      case RETREIVE_MODAL:
+        return {
+          ...state,
+          modalContent: action.payload,
+          loading: false
+
+        }
+        case CLEAR_MODAL:
+          return {
+            ...state,
+            modalContent: null,
+            loading: false
+  
+          }
+      case ADD_FAV:
+        return {
+            ...state,
+            favourites: [...state.favourites, action.payload],
+            loading: false
+          
+          }
+        case DELETE_FAV:
+            return{
+                ...state,
+                favourites: state.favourites.filter(favourite => favourite.id !== action.payload)
+            };
       default:
         return state;
     }
