@@ -96,11 +96,10 @@ const SearchSection = styled.div`
 const SearchInput = styled.input`
   width: 80%;
   padding: 0.4rem;
-  font-size: 1.2rem;
   border-radius: 10px;
   border: none;
-  font-size: 24px;
-  letter-spacing: 1px;
+  font-size: 22px;
+  letter-spacing: 2px;
 
   
 @media screen and (max-width: 765px) {
@@ -125,8 +124,8 @@ const SubmitInput = styled.input`
   background-color: #884AF4;
   border: none;
   color: white;
-  font-size: 24px;
-  letter-spacing: 1px;
+  font-size: 22px;
+  letter-spacing: 2px;
 
   
 @media screen and (max-width: 765px) {
@@ -146,9 +145,8 @@ border-radius: 10px;
 border: none;
 cursor: pointer;
 background: white;
-font-size: 24px;
-
-letter-spacing: 1px;
+font-size: 22px;
+letter-spacing: 2px;
 
 @media screen and (max-width: 765px) {
   font-size: 20px;

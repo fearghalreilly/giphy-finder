@@ -79,7 +79,7 @@ h2 {
 
 const TrendingContent = styled.div`
   columns: 4;
- column-gap: 15px;
+ column-gap: 10px;
  cursor: pointer;
 
  
@@ -92,7 +92,8 @@ const TrendingContent = styled.div`
   }
 
  img {
-   padding-top: 15px;
+   margin-top: 10px;
+   border-radius: 10px;
  }
 
 `

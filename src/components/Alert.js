@@ -84,7 +84,8 @@ const AlertSection = styled.div`
   p {
     color: white;
     padding: 20px 15px 20px 20px;
-    font-size: 18px;
+    font-size: 22px;
+    letter-spacing: 2px;
    
 
   }

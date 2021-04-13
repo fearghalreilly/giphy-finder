@@ -4,12 +4,11 @@ import GlobalStyles from './components/GlobalStyles'
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
 
-//components
-import Navigation from './components/Navigation'
-
 
 //pages
-import Home from './pages/Home'
+import HomePage from './pages/HomePage'
+import MyFavouritesPage from './pages/MyFavouritesPage'
+import AboutPage from './pages/AboutPage.js'
 
 //State
 import GiphyState from './context/giphy/GiphyState'
@@ -26,10 +25,11 @@ function App() {
     <AlertState>
     <BrowserRouter>
     <GlobalStyles />
-    <Navigation />
     <Switch>
-          <Route exact path='/' component={Home} />  
-          <Route path='/home' component={Home} />
+          <Route exact path='/' component={HomePage} />  
+          <Route path='/home' component={HomePage} />
+          <Route path='/favourites' component={MyFavouritesPage} />
+          <Route path='/about' component={AboutPage} />
   </Switch>
     </BrowserRouter>
     </AlertState>
