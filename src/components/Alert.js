@@ -85,8 +85,13 @@ const AlertSection = styled.div`
     color: white;
     padding: 20px 15px 20px 20px;
     font-size: 22px;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
    
+    @media screen and (max-width: 765px) {
+
+      font-size: 20px;
+
+}
 
   }
 

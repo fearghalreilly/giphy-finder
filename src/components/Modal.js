@@ -148,7 +148,7 @@ background-color: #884AF4;
   width: 100%;
   outline: none;
   font-size: 20px;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
 
   @media screen and (max-width: 765px) {
   font-size: 20px;

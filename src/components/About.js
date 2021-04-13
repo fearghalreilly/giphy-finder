@@ -48,12 +48,11 @@ font-size: 28px;
 `
 
 const Describtion = styled.p`
-font-size: 24px;
+font-size: 22px;
 margin: 20px 0px 60px 0px;
 color: #252525;
-line-height: 1.5;
-font-weight: 500;
 color: white;
+letter-spacing: 1.5px;
 
 
 @media screen and (max-width: 1080px) {

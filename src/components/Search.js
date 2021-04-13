@@ -99,7 +99,7 @@ const SearchInput = styled.input`
   border-radius: 10px;
   border: none;
   font-size: 22px;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
 
   
 @media screen and (max-width: 765px) {
@@ -125,7 +125,7 @@ const SubmitInput = styled.input`
   border: none;
   color: white;
   font-size: 22px;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
 
   
 @media screen and (max-width: 765px) {
@@ -146,7 +146,7 @@ border: none;
 cursor: pointer;
 background: white;
 font-size: 22px;
-letter-spacing: 2px;
+letter-spacing: 1.5px;
 
 @media screen and (max-width: 765px) {
   font-size: 20px;

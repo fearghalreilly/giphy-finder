@@ -14,6 +14,9 @@ import AboutPage from './pages/AboutPage.js'
 import GiphyState from './context/giphy/GiphyState'
 import AlertState from './context/alert/AlertState'
 
+//ScrollTop
+import ScrollTop from './components/ScrollTop'
+
 function App() {
   
 
@@ -24,6 +27,7 @@ function App() {
     <GiphyState>
     <AlertState>
     <BrowserRouter>
+    <ScrollTop />
     <GlobalStyles />
     <Switch>
           <Route exact path='/' component={HomePage} />  
