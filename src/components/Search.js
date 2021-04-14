@@ -5,6 +5,14 @@ import AlertContext from '../context/alert/alertContext';
 //Styles
 import styled from 'styled-components'
 
+//Animations
+import { motion , AnimatePresence} from "framer-motion";
+import {
+  tap,
+  fade,
+} from "../animation";
+
+
 
 const Search = () => {
 
@@ -30,7 +38,8 @@ const onSubmit = e => {
   const onChange = e => setText(e.target.value);
 
   return (
-
+    <>
+    <AnimatePresence exitBeforeEnter>
     <SearchContainer>
       <SearchSection>
       <form onSubmit={onSubmit} >
@@ -42,14 +51,18 @@ const onSubmit = e => {
           onChange={onChange}
          
         />
-        <SubmitInput
+        <SubmitInput 
+         variants={tap}  whileTap='hover'
           type='submit'
           value='Search'
          
         />
       </form>
       {gifs.length > 0 && (
-        <Button
+        <Button  variants={fade}
+        initial='hidden'
+        animate='show'
+        exit='hidden'
           onClick={clearGifs}
         >
           Clear Search
@@ -57,12 +70,15 @@ const onSubmit = e => {
       )}
       </SearchSection>
     </SearchContainer>
+    </AnimatePresence>
+    </>
   )
+ 
 };
 
 export default Search;
 
-const SearchContainer = styled.div`
+const SearchContainer = styled(motion.div)`
   background: black;
   padding: 15px 100px 15px 100px;
   width: 100%;
@@ -93,7 +109,7 @@ const SearchSection = styled.div`
 
 `
 
-const SearchInput = styled.input`
+const SearchInput = styled(motion.input)`
   width: 80%;
   padding: 0.4rem;
   border-radius: 10px;
@@ -114,7 +130,7 @@ const SearchInput = styled.input`
 
 `
 
-const SubmitInput = styled.input`
+const SubmitInput = styled(motion.input)`
   width: 25%;
   margin-left: -5%;
   padding: 0.4rem;
@@ -138,7 +154,7 @@ const SubmitInput = styled.input`
   }
 
 `
-const Button = styled.button`
+const Button = styled(motion.button)`
 padding: 0.4rem;
 font-size: 1.2rem;
 border-radius: 10px;
@@ -147,6 +163,7 @@ cursor: pointer;
 background: white;
 font-size: 22px;
 letter-spacing: 1.5px;
+outline: none;
 
 @media screen and (max-width: 765px) {
   font-size: 20px;

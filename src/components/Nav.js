@@ -76,7 +76,7 @@ background: black;
 padding: 45px 100px 45px 100px;
 position: sticky;
   top: 0;
-  z-index:10;
+  z-index: 20;
 
   @media screen and (max-width: 1080px) {
   padding: 45px 55px 45px 55px;

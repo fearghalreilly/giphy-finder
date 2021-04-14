@@ -12,6 +12,13 @@ import {
 //Styles
 import styled from 'styled-components'
 
+//Animations
+import { motion , AnimatePresence} from "framer-motion";
+import {
+  tap,
+  fade,
+} from "../animation";
+
 const Favourites = () => {
   const giphyContext = useContext(GiphyContext);
 
@@ -20,10 +27,14 @@ const Favourites = () => {
  
     return (
         <>
+        <AnimatePresence exitBeforeEnter>
           <FavouritesContainer>
             {!favourites.length > 0  ? (
             
-               <AlertContainer>
+               <AlertContainer variants={fade}
+               initial='hidden'
+               animate='show'
+               exit='hidden'>
                <AlertSection>
                  <IconContainer>
                <FontAwesomeIcon icon={faSave} color="#fff" size="2x"  />
@@ -34,12 +45,17 @@ const Favourites = () => {
              
           
             ) : ( <>
-            <FavouritesSection>
+            <FavouritesSection
+              >
               {favourites.map((fav) =>{
                 return(
-                <FavouriteGif>
+                <FavouriteGif variants={fade}
+                initial='hidden'
+                animate='show'
+                exit='hidden'
+                  >
                     <img src={fav.images.fixed_height.url}></img>
-                  <button onClick={() => deleteFav(fav.id)}>Remove</button>
+                  <motion.button variants={tap}  whileTap='tap' onClick={() => deleteFav(fav.id)}>Remove</motion.button>
                 </FavouriteGif>
                 )} )} 
                 </FavouritesSection>
@@ -49,6 +65,7 @@ const Favourites = () => {
 
           
           </FavouritesContainer>
+          </AnimatePresence>
         </>
     )
 }
@@ -70,7 +87,7 @@ const FavouritesContainer = styled.div`
   }
  `
 
- const AlertContainer = styled.div`
+ const AlertContainer = styled(motion.div)`
 
 `
 
@@ -112,10 +129,11 @@ const IconContainer = styled.div`
 `
 
 
-const FavouritesSection = styled.div`
+const FavouritesSection = styled(motion.div)`
  display: grid;
  grid-template-columns: 1fr 1fr 1fr 1fr;
- grid-gap: 15px;
+ grid-gap: 30px;
+ padding-top: 10px;
 
    
  @media screen and (max-width: 770px) {
@@ -131,11 +149,11 @@ const FavouritesSection = styled.div`
   }
 
 `
-const FavouriteGif = styled.div`
+const FavouriteGif = styled(motion.div)`
    display: flex;
    flex-direction: column;
    width: 100%;
-
+  
  img {
 
   object-fit: cover;
@@ -162,6 +180,8 @@ background-color: #884AF4;
   outline: none;
   font-size: 22px;
   letter-spacing: 1.5px;
+  cursor: pointer;
+
   
 
   @media screen and (max-width: 765px) {

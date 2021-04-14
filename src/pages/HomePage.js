@@ -1,19 +1,28 @@
 import React from 'react'
 
 //Page Components
-import Navigation from '../components/Navigation'
 import TrendingGifs from '../components/TrendingGifs'
 import Gifs from '../components/Gifs'
 import Modal from '../components/Modal'
 
+//animation
+import {
+    pageAnimation} from '../animation'
+  import { motion } from 'framer-motion'
+
 
 const HomePage = () => {
     return (
-        <>
-        <Navigation />
+       <>
+       
+        <motion.div exit="exit"
+        variants={pageAnimation}
+        initial="hidden"
+        animate="show">
         <TrendingGifs />
         <Gifs />
         <Modal />
+        </motion.div>
         </>
 
     )

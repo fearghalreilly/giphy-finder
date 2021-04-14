@@ -4,13 +4,20 @@ import React from 'react'
 import Nav from '../components/Nav'
 import About from '../components/About'
 
+//animation
+import {
+    pageAnimation} from '../animation'
+  import { motion } from 'framer-motion'
+
 const AboutPage = () => {
 
     return (
-        <>
-        <Nav/>
+        <motion.div exit="exit"
+        variants={pageAnimation}
+        initial="hidden"
+        animate="show">
         <About />
-        </>
+        </motion.div>
         
     )
 }

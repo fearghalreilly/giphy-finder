@@ -10,6 +10,14 @@ import {
   faExclamationCircle,
   } from "@fortawesome/free-solid-svg-icons";
 
+  //Animations
+//Animations
+import { motion , AnimatePresence} from "framer-motion";
+import {
+  fade,
+} from "../animation";
+
+
 const Alert = () => {
 
   const alertContext = useContext(AlertContext);
@@ -19,8 +27,12 @@ const Alert = () => {
 
   return (
     <>
+    <AnimatePresence exitBeforeEnter>
     {alert ? ( 
-      <AlertContainer>
+      <AlertContainer  variants={fade}
+      initial='hidden'
+      animate='show'
+      exit='hidden'> 
       <AlertSection>
         <IconContainer>
       <FontAwesomeIcon icon={faExclamationCircle} color="#fff" size="2x"  />
@@ -29,19 +41,8 @@ const Alert = () => {
       </AlertSection>
     </AlertContainer>
 
-    ) : (
-      <AlertContainer>
-      <AlertSection style={{ backgroundColor: "black"}}>
-        <IconContainer>
-      <FontAwesomeIcon icon={faExclamationCircle} color="#black" size="2x"  />
-      </IconContainer>
-      <p style={{ color: "black"}}>Please enter something</p>
-      </AlertSection>
-    </AlertContainer>
-
-
-
-    )}
+    ) : null }
+    </AnimatePresence>
     </>
        
   )
@@ -49,10 +50,11 @@ const Alert = () => {
 
 export default Alert;
 
-const AlertContainer = styled.div`
+const AlertContainer = styled(motion.div)`
   background: black;
   padding: 0px 100px 0px 100px;
   width: 100%;
+  height: 100%;
 
   @media screen and (max-width: 1080px) {
   padding: 0px 55px 0px 55px;
@@ -64,7 +66,7 @@ const AlertContainer = styled.div`
 
 `
 
-const AlertSection = styled.div`
+const AlertSection = styled(motion.div)`
   background: #f44336;
   border-radius: 10px;
   margin: auto;

@@ -11,6 +11,15 @@ import {
 //Styles
 import styled from 'styled-components'
 
+//Animations
+import { motion } from "framer-motion";
+import {
+  hover,
+} from "../animation";
+
+
+
+
 const TrendingGifs = () => {
     const giphyContext = useContext(GiphyContext);
 
@@ -33,9 +42,9 @@ const TrendingGifs = () => {
   <TrendingContent>
               {trendingGifs.map(gif => {
       return (
-        <div onClick={() => getModalContent(gif)}>
-          <img src={gif.images.fixed_height.url}></img>
-        </div>
+        <TrendingGif  onClick={() => getModalContent(gif)}>
+          <motion.img variants={hover}  whileHover='hover' src={gif.images.fixed_height.url}></motion.img>
+        </TrendingGif>
       )
     })}
     </TrendingContent>
@@ -77,10 +86,11 @@ h2 {
 
 `
 
-const TrendingContent = styled.div`
+const TrendingContent = styled(motion.div)`
   columns: 4;
  column-gap: 10px;
  cursor: pointer;
+
 
  
   @media screen and (max-width: 960px) {
@@ -91,9 +101,18 @@ const TrendingContent = styled.div`
     columns: 2;
   }
 
+  `
+  const TrendingGif = styled(motion.div)`
+  
+  overflow: hidden;
+  border-radius: 10px;
+  margin-top: 10px;
+  
+
  img {
-   margin-top: 10px;
+  
    border-radius: 10px;
+   overflow: hidden;
  }
 
 `

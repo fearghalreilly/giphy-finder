@@ -9,16 +9,35 @@ import Alert from '../components/Alert'
 //Styles
 import styled from 'styled-components'
 
+//location
+import {useLocation} from 'react-router-dom'
+
+
+
 const Navigation = () => {
-    return (
+
+//Location
+const { pathname } = useLocation();
+
+if (pathname  === '/' ) {
+    return <>
+    <NavbarContainer>
+        <Nav />
+        <Alert />
+        <Search />
+    </NavbarContainer>
+    </>
+} else {
+    return ( 
         <>
         <NavbarContainer>
             <Nav />
-            <Alert />
-            <Search />
         </NavbarContainer>
         </>
     )
+}
+
+
 }
 
 export default Navigation
@@ -28,5 +47,5 @@ const NavbarContainer = styled.div`
      position: sticky;
      top: 0;
      width: 100%;
-     z-index: 10;
+     z-index: 20;
 `
