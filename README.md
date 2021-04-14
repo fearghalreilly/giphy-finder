@@ -7,8 +7,8 @@
 - The ability to Search for gifs
 - Error prompt if string is empty on Search submit
 - A clear button to clear searched gifs
-- Bring selected gif up on a modal
-- Add and removed favourite gif
+- Selected gif appear in a modal
+- Add and remove favourite gifs
 
 ## Getting Started
 
