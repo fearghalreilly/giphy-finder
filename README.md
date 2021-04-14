@@ -2,6 +2,14 @@
 
 #### A React Application that uses the Giphy API to retrieve the "trending" gifs with the ability to search, save and remove them. The aaplication is mobile respsosnive and uses Context and Reducer for statement.
 
+## Current Functions
+- Retrieve "Trending" gifs
+- The ability to Search for gifs
+- Error prompt if string is empty on Search submit
+- A clear button to clear searched gifs
+- Bring selected gif up on a modal
+- Add and removed favourite gif
+
 ## Getting Started
 
 ### Install
