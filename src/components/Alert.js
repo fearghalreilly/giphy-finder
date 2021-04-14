@@ -32,16 +32,17 @@ const Alert = () => {
       <AlertContainer  variants={fade}
       initial='hidden'
       animate='show'
-      exit='hidden'> 
+      exit='hidden'
+     > 
       <AlertSection>
         <IconContainer>
       <FontAwesomeIcon icon={faExclamationCircle} color="#fff" size="2x"  />
       </IconContainer>
-      <p>Please enter something</p>
+      <p >Please enter something</p>
       </AlertSection>
     </AlertContainer>
 
-    ) : null }
+    ) : <div></div> }
     </AnimatePresence>
     </>
        

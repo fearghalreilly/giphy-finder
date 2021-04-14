@@ -49,9 +49,7 @@ const searchGifs = async text => {
  const getTrendingGifs = async () => {
     setLoading();
 
-    const res = await axios.get('https://api.giphy.com/v1/gifs/trending', {params: {api_key: 'f9lj5mOeZNV6F2WX7nw90WWWZ5L3WPNS'
-}
-})
+    const res = await axios.get('https://api.giphy.com/v1/gifs/trending?api_key=f9lj5mOeZNV6F2WX7nw90WWWZ5L3WPNS&limit=25&rating=g')
        
     dispatch({
       type: GET_TRENDING_GIFS,

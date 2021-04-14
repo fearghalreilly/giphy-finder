@@ -15,6 +15,7 @@ import styled from 'styled-components'
 import { motion } from "framer-motion";
 import {
   hover,
+
 } from "../animation";
 
 
@@ -87,9 +88,13 @@ h2 {
 `
 
 const TrendingContent = styled(motion.div)`
-  columns: 4;
+  columns: 5;
  column-gap: 10px;
  cursor: pointer;
+
+ @media screen and (max-width: 1024px) {
+    columns: 4;
+  }
 
 
  

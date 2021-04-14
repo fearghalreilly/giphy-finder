@@ -142,7 +142,7 @@ align-items: flex-end;
 background-color: transparent;
 border-radius: 10px;
 border-style: solid;
-border-color:  #884AF4; 
+border-color:  black; 
 
 img {
   
