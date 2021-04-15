@@ -9,6 +9,12 @@ import Spinner from './Spinner';
 //Styles
 import styled from 'styled-components'
 
+//Animations
+import { motion , AnimatePresence} from "framer-motion";
+import {
+  fade,
+} from "../animation";
+
 const Gifs = () => {
     const giphyContext = useContext(GiphyContext);
 
@@ -22,17 +28,22 @@ const Gifs = () => {
 
  return (
  <>  
-<GifContainer>
+ <AnimatePresence exitBeforeEnter>
+<GifContainer variants={fade}
+   initial='hidden'
+   animate='show'
+   exit='hidden'>
   <GifContent >
     {gifs.map(gif => {
       return (
-  <div onClick={() => getModalContent(gif)}>
-   <img src={gif.images.fixed_height.url}></img>
-  </div>
+  <SearchedGif onClick={() => getModalContent(gif)}>
+   <img src={gif.images.fixed_width.url}></img>
+  </SearchedGif>
   )
   })}
   </GifContent>
 </GifContainer>
+</AnimatePresence>
 </>
 
  )
@@ -41,7 +52,7 @@ const Gifs = () => {
 
 
 export default Gifs;
-const GifContainer = styled.div`
+const GifContainer = styled(motion.div)`
   background: black;
   padding: 0px 100px 0px 100px;
   width: 100%;
@@ -56,14 +67,17 @@ const GifContainer = styled.div`
 `
 
 const GifContent = styled.div`
-columns: 4;
- column-gap: 15px;
+columns: 5;
+ column-gap: 10px;
  background: black;
  cursor: pointer;
 
  h2 {
    color: white;
  }
+ @media screen and (max-width: 1024px) {
+    columns: 4;
+  }
  
   @media screen and (max-width: 960px) {
     columns: 3;
@@ -73,8 +87,13 @@ columns: 4;
     columns: 2;
   }
 
+  `
+  const SearchedGif = styled.div`
+   border-radius: 10px;
+  margin-top: 10px;
+
  img {
-   padding-top: 15px;
+  border-radius: 10px;
  }
 
 `

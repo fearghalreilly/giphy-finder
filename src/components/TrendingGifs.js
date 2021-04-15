@@ -12,10 +12,10 @@ import {
 import styled from 'styled-components'
 
 //Animations
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   hover,
-
+  fade,
 } from "../animation";
 
 
@@ -30,10 +30,13 @@ const TrendingGifs = () => {
   
  return (
    <>
-
+<AnimatePresence exitBeforeEnter>
 {!gifs.length  > 0 && (
  
-  <TrendingContainer>
+  <TrendingContainer ariants={fade}
+  initial='hidden'
+  animate='show'
+  exit='hidden'> 
   <TrendingHeader>
   <FontAwesomeIcon icon={faChartLine} color="#00E6CC" size="3x" />
   <h2>Trending</h2>
@@ -44,7 +47,7 @@ const TrendingGifs = () => {
               {trendingGifs.map(gif => {
       return (
         <TrendingGif  onClick={() => getModalContent(gif)}>
-          <motion.img variants={hover}  whileHover='hover' src={gif.images.fixed_height.url}></motion.img>
+          <motion.img variants={hover}  whileHover='hover' src={gif.images.fixed_width.url}></motion.img>
         </TrendingGif>
       )
     })}
@@ -52,7 +55,7 @@ const TrendingGifs = () => {
     </TrendingContainer>
   
       )}
-  
+  </AnimatePresence>
   </>
 
  )

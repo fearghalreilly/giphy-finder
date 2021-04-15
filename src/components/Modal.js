@@ -66,7 +66,7 @@ const Modal = () => {
   </div> 
   
   <GifSection>
-    <img src={modalContent.images.fixed_height.url}></img>
+    <img src={modalContent.images.fixed_width.url}></img>
   </GifSection>
 
   <ButtonSection variants={tap}  whileTap='tap' >

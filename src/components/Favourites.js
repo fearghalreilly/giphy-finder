@@ -54,7 +54,7 @@ const Favourites = () => {
                 animate='show'
                 exit='hidden'
                   >
-                    <img src={fav.images.fixed_height.url}></img>
+                    <img src={fav.images.fixed_width.url}></img>
                   <motion.button variants={tap}  whileTap='tap' onClick={() => deleteFav(fav.id)}>Remove</motion.button>
                 </FavouriteGif>
                 )} )} 
